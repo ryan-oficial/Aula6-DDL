@@ -10,16 +10,12 @@ namespace Senai_EFCore.Domains
     /// <summary>
     ///  Define a classe produto
     /// </summary>
-    public class Produto
+    public class Produto : BaseDomain
     {
-        [Key]
-        public Guid Id { get; set; }
+
         public string Nome { get; set; }
         public float Preço { get; set; }
 
-        public Produto()
-        {
-            Id = Guid.NewGuid();
-        }
+   
     }
 }
