@@ -108,8 +108,8 @@ namespace Senai_EFCore.Repository
 
                 //verifica se o produto existe
                 //caso não exista gera uma exeçao
-                if (produtoTemp == null)
-                    throw new Exception("Produto não encontrado");
+               // if (produtoTemp == null)
+                 //   throw new Exception("Produto não encontrado");
 
                 //caso exista altera as propriedades
                 produtoTemp.Nome = produto.Nome;
@@ -152,7 +152,7 @@ namespace Senai_EFCore.Repository
             }
             catch (Exception ex)
             {
-
+                //TODO: Incluir erro no log de banco de dados
                 throw new Exception(ex.Message);
             }
         }

@@ -11,6 +11,14 @@ namespace Senai_EFCore.Domains
         public string Status { get; set; }
         public DateTime OrderDate { get; set; }
 
+        //Relacionamento com a tabela pedido item
+        public List<PedidoItem> PedidosItens { get; set; }
+
+        public Pedido()
+        {
+            PedidosItens = new List<PedidoItem>();
+        }
+
 
     }
 }

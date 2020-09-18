@@ -9,11 +9,16 @@ namespace Senai_EFCore.Domains
     public abstract class BaseDomain
     {
         [Key]
-        public Guid Id { get; set; }
+        public Guid Id { get; private set; }
 
         public BaseDomain()
         {
             Id = Guid.NewGuid();
+        }
+
+        public void setId(Guid id)
+        {
+            this.Id = id;
         }
     }
 }
