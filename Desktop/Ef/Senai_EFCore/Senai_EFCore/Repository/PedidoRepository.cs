@@ -1,4 +1,5 @@
-﻿using Senai_EFCore.Contexts;
+﻿using Microsoft.EntityFrameworkCore;
+using Senai_EFCore.Contexts;
 using Senai_EFCore.Domains;
 using Senai_EFCore.Interfaces;
 using System;
@@ -56,14 +57,37 @@ namespace Senai_EFCore.Repository
             throw new NotImplementedException();
         }
 
-        public Pedido BUscarPorId(Guid id)
+
+        public Pedido BuscarPorId(Guid id)
+        {
+            try
+            {
+                return _ctx.Pedidos.Include(x => x.PedidosItens).ThenInclude(x => x.Produto).FirstOrDefault(x => x.Id == id);
+                
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
+
+        private void FirstOrDefault(Func<object, bool> p)
         {
             throw new NotImplementedException();
         }
 
         public List<Pedido> Listar()
         {
-            throw new NotImplementedException();
+            try
+            {
+                return _ctx.Pedidos.ToList();
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

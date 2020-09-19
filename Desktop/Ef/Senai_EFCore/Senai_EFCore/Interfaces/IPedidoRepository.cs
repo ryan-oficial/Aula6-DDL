@@ -10,7 +10,7 @@ namespace Senai_EFCore.Interfaces
     {
 
         List<Pedido> Listar();
-        Pedido BUscarPorId(Guid id);
+        Pedido BuscarPorId(Guid id);
         Pedido Adicionar(List<PedidoItem> pedidosItens);
     }
 }

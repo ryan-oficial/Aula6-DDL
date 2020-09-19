@@ -14,11 +14,11 @@ namespace Senai_EFCore.Controllers
     [ApiController]
     public class PedidosController : ControllerBase
     {
-        private readonly IPedidoRepository _pedidoRespository;
+        private readonly IPedidoRepository _pedidoRepository;
 
         public PedidosController()
         {
-            _pedidoRespository = new PedidoRepository();
+            _pedidoRepository = new PedidoRepository();
         }
 
         [HttpPost]
@@ -27,13 +27,31 @@ namespace Senai_EFCore.Controllers
             try
             {
                 //adiciona um pedido
-                Pedido pedido = _pedidoRespository.Adicionar(pedidosItens);
+                Pedido pedido = _pedidoRepository.Adicionar(pedidosItens);
                 return Ok(pedido);
             }
             catch (System.Exception ex)
             { 
                 return BadRequest(ex.Message);
             }
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetById(Guid id)
+        {
+            try
+            {
+                var pedido = _pedidoRepository.BuscarPorId(id);
+
+                if(pedido == null)
+                        return NotFound();
+                return Ok(pedido);
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
         }
     }
 }

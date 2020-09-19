@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
@@ -73,11 +74,33 @@ namespace Senai_EFCore.Controllers
             }
         }
 
+        //FromForm - recebe os dados do produto na form-data
         [HttpPost]
-        public IActionResult Post(Produto produto)
+        public IActionResult Post([FromForm]Produto produto)
         {
             try
             {
+                if(produto.Imagem != null)
+                {
+                      //Gera o nome do arquivo unico
+                      //Pego a extensao do arquivo
+                      //Contateno o nome do arquivo com sua extensao
+                      var nomeArquivo = Guid.NewGuid().ToString().Replace("-", "") + Path.GetExtension(produto.Imagem.FileName);
+
+                    //GetCurrentDirectory - peg ao caminho do diretorio atual 
+                    var caminhoarquivo = Path.Combine(Directory.GetCurrentDirectory(), @"wwwRoot\Upload\Imagens", nomeArquivo);
+
+                    //Cria um objeto do tipo filestream passando o caminho do arquivo
+                   
+                    using var streamImagen = new FileStream(caminhoarquivo, FileMode.Create);
+
+                    //executo o comando de criaçao no arquivo do local informado
+                    produto.Imagem.CopyTo(streamImagen);
+
+                    produto.UrlImagem = 
+                };
+
+
                 _produtoRepository.Adicionar(produto);
 
                 return Ok(produto); 
