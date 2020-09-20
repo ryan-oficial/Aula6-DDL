@@ -60,5 +60,3 @@ C:\Users\fic\Desktop\Ef\Senai_EFCore\Senai_EFCore\obj\Debug\netcoreapp3.1\Senai_
 C:\Users\fic\Desktop\Ef\Senai_EFCore\Senai_EFCore\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\fic\Desktop\Ef\Senai_EFCore\Senai_EFCore\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\fic\Desktop\Ef\Senai_EFCore\Senai_EFCore\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
-C:\Users\fic\Desktop\Ef\Senai_EFCore\Senai_EFCore\obj\Debug\netcoreapp3.1\Senai_EFCore.csproj.CoreCompileInputs.cache
-C:\Users\fic\Desktop\Ef\Senai_EFCore\Senai_EFCore\obj\Debug\netcoreapp3.1\Senai_EFCore.MvcApplicationPartsAssemblyInfo.cache
